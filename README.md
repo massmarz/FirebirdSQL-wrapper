@@ -3,9 +3,7 @@ C++ Library for Firebird SQL using the new object oriented APIs.
 
 # Example
 
-/* 
- * File:   test.cpp
- */
+/* File:   test.cpp */
 
 #include <iostream>
 #include "Attachment.h"
@@ -16,6 +14,7 @@ C++ Library for Firebird SQL using the new object oriented APIs.
 #define DATABASE ...
 
 int main() {
+
     Attachment attachment;
     Transaction transaction;
     Statement statement;
