@@ -24,21 +24,22 @@ int main() {
     attachment.connect();
     
     transaction.setAttachment(&attachment);
-    
-    statement.setSql("CREATE TABLE TEST (ID INTEGER PRIMARY KEY, DESC VARCHAR(10))");
     statement.setTransaction(&transaction);
+    
+    statement.setSql("CREATE TABLE TEST (ID INTEGER PRIMARY KEY, DESC VARCHAR(10), VAL DOUBLE PRECISION)");
     statement.execute();
     transaction.commitRetain();
+    
 
-    statement.setSql("INSERT INTO TEST(ID, DESC) VALUES (1, 'AAA')");
+    statement.setSql("INSERT INTO TEST(ID, DESC, VAL) VALUES (1, 'AAA', 1.11)");
     statement.execute();
-    statement.setSql("INSERT INTO TEST(ID, DESC) VALUES (2, 'BBB')");
+    statement.setSql("INSERT INTO TEST(ID, DESC, VAL) VALUES (2, 'BBB', 2.22)");
     statement.execute();
-    statement.setSql("INSERT INTO TEST(ID, DESC) VALUES (3, 'CCC')");
+    statement.setSql("INSERT INTO TEST(ID, DESC, VAL) VALUES (3, 'CCC', 3.33)");
     statement.execute();
-    statement.setSql("INSERT INTO TEST(ID, DESC) VALUES (4, 'DDD')");
+    statement.setSql("INSERT INTO TEST(ID, DESC, VAL) VALUES (4, 'DDD', 4.44)");
     statement.execute();
-    statement.setSql("INSERT INTO TEST(ID, DESC) VALUES (5, 'EEE')");
+    statement.setSql("INSERT INTO TEST(ID, DESC, VAL) VALUES (5, 'EEE', 5.55)");
     statement.execute();
     transaction.commitRetain();
 
@@ -47,7 +48,8 @@ int main() {
     statement.open();
     while(statement.fetch()){
         std::cout << "ID: " << statement.fieldByName("ID").asInteger();
-        std::cout << " DESC: " << statement.fieldByName("DESC").asString() << std::endl;
+        std::cout << " DESC: " << statement.fieldByName("DESC").asString();
+        std::cout << " VAL: " << statement.fieldByName("VAL").asDouble() << std::endl;
     }
     statement.close();
     
@@ -58,7 +60,8 @@ int main() {
     statement.open();
     while(statement.fetch()){
         std::cout << "ID: " << statement.field(0).asInteger();
-        std::cout << " DESC: " << statement.field(1).asString() << std::endl;
+        std::cout << " DESC: " << statement.field(1).asString();
+        std::cout << " VAL: " << statement.field(2).asDouble() << std::endl;
     }
     statement.close();
     
