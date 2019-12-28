@@ -5,7 +5,7 @@ C++ Library for Firebird SQL using the new object oriented APIs.
 C++11
 
 # Usage
-```
+```c++
 #include <iostream>
 #include "Attachment.h"
 #include "Transaction.h"
