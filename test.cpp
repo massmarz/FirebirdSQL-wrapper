@@ -7,6 +7,9 @@
 #include "Transaction.h"
 #include "Statement.h"
 
+#define SERVER ...
+#define DATABASE ...
+
 /*
  * 
  */
@@ -15,7 +18,7 @@ int main() {
     Transaction transaction;
     Statement statement;
     
-    attachment.createDatabase("10.10.10.80", "E:\\database\\fb-test.gdb", "sysdba", "masterkey", "UTF8");
+    attachment.createDatabase(SERVER, DATABASE, "sysdba", "masterkey", "UTF8");
     attachment.connect();
     
     transaction.setAttachment(&attachment);
