@@ -1,10 +1,11 @@
 # fb-wrapper
 C++ Library for Firebird SQL using the new object oriented APIs.
 
-# Example
-```
-/* File:   test.cpp */
+# Requirements
+C++11
 
+# Usage
+```
 #include <iostream>
 #include "Attachment.h"
 #include "Transaction.h"
