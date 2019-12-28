@@ -2,7 +2,7 @@
 C++ Library for Firebird SQL using the new object oriented APIs.
 
 # Example
-
+```
 /* File:   test.cpp */
 
 #include <iostream>
@@ -65,3 +65,4 @@ int main() {
     
     return 0;
 }
+```
